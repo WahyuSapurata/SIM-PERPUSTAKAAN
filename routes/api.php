@@ -1,5 +1,11 @@
 <?php
 
+use App\Http\Controllers\Auth;
+use App\Http\Controllers\BukuController;
+use App\Http\Controllers\Denda;
+use App\Http\Controllers\History;
+use App\Http\Controllers\PeminjamanController;
+use App\Http\Controllers\UbahPassword;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +20,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('cors')->group(function () {
+    Route::post('/api-register', [Auth::class, 'register']);
+    Route::post('/api-login', [Auth::class, 'do_login']);
+    Route::middleware('auth:sanctum')->group(function () {
+        Route::get('/api-buku', [BukuController::class, 'get']);
+
+        Route::get('/api-get-peminjaman', [PeminjamanController::class, 'get']);
+        Route::post('/api-add-peminjaman', [PeminjamanController::class, 'store']);
+
+        Route::get('/api-get-histori', [History::class, 'get']);
+
+        Route::get('/api-get-denda', [Denda::class, 'get']);
+
+        Route::post('/do-ubahpassword/{params}', [UbahPassword::class, 'update']);
+
+        Route::get('/api-logout', [Auth::class, 'revoke']);
+    });
 });
