@@ -63,6 +63,15 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
 
         Route::get('/denda', 'Denda@index')->name('denda');
         Route::get('/get-denda', 'Denda@get')->name('get-denda');
+
+        Route::get('/ebook', 'EbookController@index')->name('ebook');
+        Route::get('/add-view-ebook', 'EbookController@add')->name('add-view-ebook');
+        Route::get('/edit-view-ebook/{params}', 'EbookController@edit')->name('edit-view-ebook');
+        Route::get('/get-ebook', 'EbookController@get')->name('get-ebook');
+        Route::get('/show-ebook/{params}', 'EbookController@show')->name('show-ebook');
+        Route::post('/add-ebook', 'EbookController@store')->name('add-ebook');
+        Route::post('/update-ebook/{params}', 'EbookController@update')->name('update-ebook');
+        Route::delete('/delete-ebook/{params}', 'EbookController@delete')->name('delete-ebook');
     });
 
     Route::get('/logout', 'Auth@logout')->name('logout');

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\Denda;
+use App\Http\Controllers\EbookController;
 use App\Http\Controllers\History;
 use App\Http\Controllers\KategoriBukuController;
 use App\Http\Controllers\PeminjamanController;
@@ -30,6 +31,8 @@ Route::middleware('cors')->group(function () {
         Route::get('/api-buku', [BukuController::class, 'get']);
         Route::get('/api-search-buku', [BukuController::class, 'search']);
         Route::get('/api-buku-by-Uuidcategory/{params}', [BukuController::class, 'getByUuid']);
+
+        Route::get('/api-ebook', [EbookController::class, 'get']);
 
         Route::get('/api-get-peminjaman', [PeminjamanController::class, 'get']);
         Route::post('/api-add-peminjaman', [PeminjamanController::class, 'store']);

@@ -197,6 +197,24 @@
                     </a>
                 </div>
                 <!--end::Menu item-->
+
+                <!--begin::Menu item-->
+                <div class="menu-item">
+                    <a class="menu-link {{ isset($path[1]) && $path[1] === 'ebook' ? 'active' : '' }}"
+                        href="{{ route('admin.ebook') }}">
+                        <span class="menu-icon">
+                            <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                            <span class="svg-icon svg-icon-2">
+                                <img src="{{ isset($path[1]) && $path[1] === 'ebook' ? url('assets/media/icons/aside/ebookact.svg') : url('assets/media/icons/aside/ebookdef.svg') }}"
+                                    alt="">
+                            </span>
+                            <!--end::Svg Icon-->
+                        </span>
+                        <span class="menu-title"
+                            style="{{ isset($path[1]) && $path[1] === 'ebook' ? 'color: #F4BE2A' : 'color: #FFFFFF' }}">E-Book</span>
+                    </a>
+                </div>
+                <!--end::Menu item-->
             @endif
 
             {{-- <div class="menu-item">
