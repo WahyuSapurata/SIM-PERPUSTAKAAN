@@ -50,6 +50,25 @@ class BukuController extends BaseController
         return $this->sendResponse($combinedData, 'Get data success');
     }
 
+    public function getByUuid($params)
+    {
+        // Mengambil semua data pengguna
+        $dataFull = Buku::where('uuid_kategori', $params)->get();
+
+        $combinedData = $dataFull->map(function ($item) {
+            $kategori = KategoriBuku::where('uuid', $item->uuid_kategori)->first();
+            $peminjam = Peminjaman::where('uuid_buku', $item->uuid)->where('status', 'Terpinjam')->count();
+
+            $item->kategori = $kategori->nama_kategori;
+            $item->jumlah_stok = $item->stok - $peminjam;
+
+            return $item;
+        });
+
+        // Mengembalikan response berdasarkan data yang sudah disaring
+        return $this->sendResponse($combinedData, 'Get data success');
+    }
+
     public function store(StoreBukuRequest $storeBukuRequest)
     {
         $data = array();

@@ -29,6 +29,7 @@ Route::middleware('cors')->group(function () {
 
         Route::get('/api-buku', [BukuController::class, 'get']);
         Route::get('/api-search-buku', [BukuController::class, 'search']);
+        Route::get('/api-buku-by-Uuidcategory/{params}', [BukuController::class, 'getByUuid']);
 
         Route::get('/api-get-peminjaman', [PeminjamanController::class, 'get']);
         Route::post('/api-add-peminjaman', [PeminjamanController::class, 'store']);
