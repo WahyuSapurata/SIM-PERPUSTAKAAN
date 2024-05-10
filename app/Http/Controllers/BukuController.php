@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateBukuRequest;
 use App\Models\Buku;
 use App\Models\KategoriBuku;
 use App\Models\Peminjaman;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
 class BukuController extends BaseController
@@ -142,5 +143,18 @@ class BukuController extends BaseController
             return $this->sendError($e->getMessage(), $e->getMessage(), 400);
         }
         return $this->sendResponse($data, 'Delete data success');
+    }
+
+    public function search(Request $request)
+    {
+        try {
+            $keyword = $request->input('keyword');
+
+            // Cari buku berdasarkan judul atau penulis
+            $result = Buku::where('judul', 'like', "%$keyword%")->get();
+        } catch (\Exception $e) {
+            return $this->sendError($e->getMessage(), $e->getMessage(), 400);
+        }
+        return $this->sendResponse($result, 'Show data success');
     }
 }

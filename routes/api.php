@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth;
 use App\Http\Controllers\BukuController;
 use App\Http\Controllers\Denda;
 use App\Http\Controllers\History;
+use App\Http\Controllers\KategoriBukuController;
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\UbahPassword;
 use Illuminate\Http\Request;
@@ -24,7 +25,10 @@ Route::middleware('cors')->group(function () {
     Route::post('/api-register', [Auth::class, 'register']);
     Route::post('/api-login', [Auth::class, 'do_login']);
     Route::middleware('auth:sanctum')->group(function () {
+        Route::get('/api-kategori', [KategoriBukuController::class, 'get']);
+
         Route::get('/api-buku', [BukuController::class, 'get']);
+        Route::get('/api-search-buku', [BukuController::class, 'search']);
 
         Route::get('/api-get-peminjaman', [PeminjamanController::class, 'get']);
         Route::post('/api-add-peminjaman', [PeminjamanController::class, 'store']);
