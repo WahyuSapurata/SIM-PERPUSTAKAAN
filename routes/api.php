@@ -33,6 +33,7 @@ Route::middleware('cors')->group(function () {
         Route::get('/api-buku-by-Uuidcategory/{params}', [BukuController::class, 'getByUuid']);
 
         Route::get('/api-ebook', [EbookController::class, 'get']);
+        Route::get('/api-search-ebook', [EbookController::class, 'search']);
 
         Route::get('/api-get-peminjaman', [PeminjamanController::class, 'get']);
         Route::post('/api-add-peminjaman', [PeminjamanController::class, 'store']);

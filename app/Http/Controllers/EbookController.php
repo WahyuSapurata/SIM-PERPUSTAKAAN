@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreEbookRequest;
 use App\Http\Requests\UpdateEbookRequest;
 use App\Models\Ebook;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
 class EbookController extends BaseController
@@ -144,5 +145,18 @@ class EbookController extends BaseController
             return $this->sendError($e->getMessage(), $e->getMessage(), 400);
         }
         return $this->sendResponse($data, 'Delete data success');
+    }
+
+    public function search(Request $request)
+    {
+        try {
+            $keyword = $request->input('keyword');
+
+            // Cari buku berdasarkan judul atau penulis
+            $result = Ebook::where('judul', 'like', "%$keyword%")->get();
+        } catch (\Exception $e) {
+            return $this->sendError($e->getMessage(), $e->getMessage(), 400);
+        }
+        return $this->sendResponse($result, 'Show data success');
     }
 }
