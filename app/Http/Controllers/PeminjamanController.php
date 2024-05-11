@@ -31,6 +31,7 @@ class PeminjamanController extends BaseController
             $item->nim = $user->username;
             $item->jurusan = $user->jurusan;
             $item->buku = $buku->judul;
+            $item->lokasi = $buku->lokasi;
 
             // Menghitung tanggal pengembalian dengan menambahkan 7 hari ke tanggal pinjam
             $pengembalian = Carbon::parse($item->tanggal_pinjam)->addDays(7)->format('d-m-Y');
