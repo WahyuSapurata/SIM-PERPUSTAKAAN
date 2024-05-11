@@ -29,7 +29,7 @@ Route::middleware('cors')->group(function () {
         Route::get('/api-kategori', [KategoriBukuController::class, 'get']);
 
         Route::get('/api-buku', [BukuController::class, 'get']);
-        Route::get('/api-search-buku', [BukuController::class, 'search']);
+        Route::post('/api-search-buku', [BukuController::class, 'search']);
         Route::get('/api-buku-by-Uuidcategory/{params}', [BukuController::class, 'getByUuid']);
 
         Route::get('/api-ebook', [EbookController::class, 'get']);
