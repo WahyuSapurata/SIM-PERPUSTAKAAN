@@ -170,7 +170,7 @@ class BukuController extends BaseController
             $keyword = $request->input('keyword');
 
             // Cari buku berdasarkan judul atau penulis
-            $result = Buku::where('judul', 'like', "%$keyword%")->get();
+            $result = Buku::where('judul', 'like', '%' . $keyword . '%')->get();
         } catch (\Exception $e) {
             return $this->sendError($e->getMessage(), $e->getMessage(), 400);
         }
