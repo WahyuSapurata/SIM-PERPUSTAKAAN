@@ -215,6 +215,24 @@
                     </a>
                 </div>
                 <!--end::Menu item-->
+
+                <!--begin::Menu item-->
+                <div class="menu-item">
+                    <a class="menu-link {{ isset($path[1]) && $path[1] === 'skripsi' ? 'active' : '' }}"
+                        href="{{ route('admin.skripsi') }}">
+                        <span class="menu-icon">
+                            <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                            <span class="svg-icon svg-icon-2">
+                                <img src="{{ isset($path[1]) && $path[1] === 'skripsi' ? url('assets/media/icons/aside/laporanact.svg') : url('assets/media/icons/aside/laporandef.svg') }}"
+                                    alt="">
+                            </span>
+                            <!--end::Svg Icon-->
+                        </span>
+                        <span class="menu-title"
+                            style="{{ isset($path[1]) && $path[1] === 'skripsi' ? 'color: #F4BE2A' : 'color: #FFFFFF' }}">Skripsi</span>
+                    </a>
+                </div>
+                <!--end::Menu item-->
             @endif
 
             {{-- <div class="menu-item">

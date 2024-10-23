@@ -7,6 +7,7 @@ use App\Http\Controllers\EbookController;
 use App\Http\Controllers\History;
 use App\Http\Controllers\KategoriBukuController;
 use App\Http\Controllers\PeminjamanController;
+use App\Http\Controllers\SkripsiController;
 use App\Http\Controllers\UbahPassword;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -43,6 +44,9 @@ Route::middleware('cors')->group(function () {
         Route::get('/api-get-denda', [Denda::class, 'get']);
 
         Route::post('/do-ubahpassword/{params}', [UbahPassword::class, 'update']);
+
+        Route::get('/api-skripsi', [SkripsiController::class, 'get']);
+        Route::post('/api-search-skripsi', [SkripsiController::class, 'search']);
 
         Route::get('/api-logout', [Auth::class, 'revoke']);
     });

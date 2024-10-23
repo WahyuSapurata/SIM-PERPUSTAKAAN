@@ -72,6 +72,13 @@ Route::group(['namespace' => 'App\Http\Controllers'], function () {
         Route::post('/add-ebook', 'EbookController@store')->name('add-ebook');
         Route::post('/update-ebook/{params}', 'EbookController@update')->name('update-ebook');
         Route::delete('/delete-ebook/{params}', 'EbookController@delete')->name('delete-ebook');
+
+        Route::get('/skripsi', 'SkripsiController@index')->name('skripsi');
+        Route::get('/get-skripsi', 'SkripsiController@get')->name('get-skripsi');
+        Route::get('/show-skripsi/{params}', 'SkripsiController@show')->name('show-skripsi');
+        Route::post('/add-skripsi', 'SkripsiController@store')->name('add-skripsi');
+        Route::post('/update-skripsi/{params}', 'SkripsiController@update')->name('update-skripsi');
+        Route::delete('/delete-skripsi/{params}', 'SkripsiController@delete')->name('delete-skripsi');
     });
 
     Route::get('/logout', 'Auth@logout')->name('logout');
