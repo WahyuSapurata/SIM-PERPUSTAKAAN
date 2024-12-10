@@ -41,7 +41,7 @@ class Dashboard extends BaseController
         $data = Peminjaman::selectRaw('COUNT(id) as count, DATE_FORMAT(created_at, \'%M\') as month_name')
             ->whereYear('created_at', '=', date('Y'))
             ->groupByRaw('DATE_FORMAT(created_at, \'%M\')')
-            ->orderByRaw('MIN(created_at)') // Agar urutan bulan sesuai waktu
+            ->orderByRaw('MIN(created_at)') // Mengurutkan hasil berdasarkan waktu
             ->get();
 
         // Inisialisasi array data
@@ -52,8 +52,8 @@ class Dashboard extends BaseController
 
         // Memproses hasil query
         foreach ($data as $row) {
-            $result['label'][] = $row->month_name;
-            $result['data'][] = (int) $row->count;
+            $result['label'][] = $row->month_name; // Nama bulan
+            $result['data'][] = (int) $row->count; // Jumlah
         }
 
         // Mengembalikan data dalam format JSON
