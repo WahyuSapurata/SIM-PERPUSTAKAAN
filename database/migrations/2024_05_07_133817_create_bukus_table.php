@@ -16,13 +16,13 @@ return new class extends Migration
             $table->uuid('uuid');
             $table->uuid('uuid_kategori');
             $table->string('judul');
-            $table->text('sinopsis');
-            $table->string('pengarang');
-            $table->string('tahun_terbit');
-            $table->string('penerbit');
-            $table->string('lokasi');
-            $table->string('stok');
-            $table->string('foto');
+            $table->text('sinopsis')->nullable();
+            $table->string('pengarang')->nullable();
+            $table->string('tahun_terbit')->nullable();
+            $table->string('penerbit')->nullable();
+            $table->string('lokasi')->nullable();
+            $table->string('stok')->nullable();
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }

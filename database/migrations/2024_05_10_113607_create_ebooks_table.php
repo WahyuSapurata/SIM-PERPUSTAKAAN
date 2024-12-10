@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->uuid('uuid');
             $table->string('judul');
-            $table->text('sinopsis');
-            $table->string('pengarang');
-            $table->string('foto');
-            $table->string('file');
+            $table->text('sinopsis')->nullable();
+            $table->string('pengarang')->nullable();
+            $table->string('foto')->nullable();
+            $table->string('file')->nullable();
             $table->timestamps();
         });
     }

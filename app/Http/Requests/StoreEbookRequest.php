@@ -23,8 +23,6 @@ class StoreEbookRequest extends FormRequest
     {
         return [
             'judul' => 'required',
-            'sinopsis' => 'required',
-            'pengarang' => 'required',
         ];
     }
 
@@ -32,8 +30,6 @@ class StoreEbookRequest extends FormRequest
     {
         return [
             'judul.required' => 'Kolom judul harus di isi.',
-            'sinopsis.required' => 'Kolom sinopsis harus di isi.',
-            'pengarang.required' => 'Kolom pengarang harus di isi.',
         ];
     }
 }

@@ -24,12 +24,6 @@ class StoreBukuRequest extends FormRequest
         return [
             'uuid_kategori' => 'required',
             'judul' => 'required',
-            'sinopsis' => 'required',
-            'pengarang' => 'required',
-            'tahun_terbit' => 'required',
-            'penerbit' => 'required',
-            'lokasi' => 'required',
-            'stok' => 'required',
         ];
     }
 
@@ -38,12 +32,6 @@ class StoreBukuRequest extends FormRequest
         return [
             'uuid_kategori.required' => 'Kolom nama kategori harus di isi.',
             'judul.required' => 'Kolom judul harus di isi.',
-            'sinopsis.required' => 'Kolom sinopsis harus di isi.',
-            'pengarang.required' => 'Kolom pengarang harus di isi.',
-            'tahun_terbit.required' => 'Kolom tahun terbit harus di isi.',
-            'penerbit.required' => 'Kolom penerbit harus di isi.',
-            'lokasi.required' => 'Kolom lokasi harus di isi.',
-            'stok.required' => 'Kolom stok harus di isi.',
         ];
     }
 }

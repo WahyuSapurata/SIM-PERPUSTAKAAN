@@ -109,28 +109,49 @@
                         data: 'sinopsis',
                         className: 'text-center',
                         render: function(data, type, row, meta) {
-                            var maxWords = 20; // Jumlah maksimal kata yang ingin ditampilkan
-                            var trimmedString = data.trim().split(/\s+/).slice(0, maxWords).join(
-                                " ");
-                            var moreIndicator = data.trim().split(/\s+/).length > maxWords ? '...' :
-                                ''; // Tambahkan tanda ... jika kata lebih dari jumlah maksimal
-                            return trimmedString + moreIndicator;
+                            if (data) {
+                                var maxWords = 20; // Jumlah maksimal kata yang ingin ditampilkan
+                                var trimmedString = data.trim().split(/\s+/).slice(0, maxWords)
+                                    .join(
+                                        " ");
+                                var moreIndicator = data.trim().split(/\s+/).length > maxWords ?
+                                    '...' :
+                                    ''; // Tambahkan tanda ... jika kata lebih dari jumlah maksimal
+                                return trimmedString + moreIndicator;
+                            } else {
+                                return '-';
+                            }
                         }
                     }, {
                         data: 'pengarang',
                         className: 'text-center',
+                        render: function(data, type, row, meta) {
+                            return data ? data : '-';
+                        }
                     }, {
                         data: 'tahun_terbit',
                         className: 'text-center',
+                        render: function(data, type, row, meta) {
+                            return data ? data : '-';
+                        }
                     }, {
                         data: 'penerbit',
                         className: 'text-center',
+                        render: function(data, type, row, meta) {
+                            return data ? data : '-';
+                        }
                     }, {
                         data: 'lokasi',
                         className: 'text-center',
+                        render: function(data, type, row, meta) {
+                            return data ? data : '-';
+                        }
                     }, {
                         data: 'jumlah_stok',
                         className: 'text-center',
+                        render: function(data, type, row, meta) {
+                            return data ? data : '-';
+                        }
                     }, {
                         data: 'foto',
                         className: 'text-center',
